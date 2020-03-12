@@ -30,9 +30,10 @@ class enaepl:
     pass
 
 class addcmd:
-    def __init__(self, command, description):
+    def __init__(self, command, description, code):
         self.cmd = command
         self.des = description
+        self.code = code
         pc.append(self.cmd)
         pci.append(self.des)
         pass
