@@ -5,12 +5,23 @@
 # And GianC-Dev
 #-------------------------------
 
+# All Manager
 
+# Plugin
 activedplugins = ['']
 pname = ['']
 papi = ['']
 pver = ['']
+pcmd = ['']
+pcmdinfo = ['']
 
+# Player
+players = ['']
+playersip = ['']
+
+# End All Manager
+
+# Server
 status = []
 
 

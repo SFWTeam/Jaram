@@ -11,21 +11,17 @@ import login as login
 import self
 
 from src.main.Jaram.VersionInfo import version
-
-players = ['']
-playersip = ['']
-
+from src.main.Jaram.server.Server import players
+from src.main.Jaram.server.Server import playersip
 
 class playerLogin:
-    def __init__(self, name, ip, version):
+    def __init__(self, name, ip, ver):
         self.p = players
         self.pip = playersip
         self.name = name
         self.ip = ip
-        self.ver = version
-        ver = version[1]
-        if self.ver > ver:
+        self.ver = ver
+        if self.ver > version[1]:
             print('Logined {}' + self.name)
             players.append('{}' + self.name)
-
     pass
