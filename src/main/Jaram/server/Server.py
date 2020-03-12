@@ -1,15 +1,22 @@
-import os
+# Jaram
+# A MC:BE Software
+# https://github.com/SFWTeam/Jaram
+# By SFW-Team
+# And GianC-Dev
+#-------------------------------
 
-status = 'deactived'
+
+
+status = []
+
 
 class start:
-    if status == 'activated':
-        print('Server Is Already Running.')
-        pass
-    else:
-        status = 'activated'
-        pass
-    pass
+    status.clear()
+    status.append('activated')
+
+
+pass
+
 
 class stop:
     status = 'deactived'

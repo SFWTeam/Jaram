@@ -1,6 +1,13 @@
+# Jaram
+# A MC:BE Software
+# https://github.com/SFWTeam/Jaram
+# By SFW-Team
+# And GianC-Dev
+#-------------------------------
+
 from src.main.Jaram.VersionInfo import version
 from src.main.Jaram.server.Server import start as active
-active
+active()
 print('--------------------------------')
 print('Welcome The {}'.format(version[0]))
 print('Creator: GianC-Dev & SFW-Team')

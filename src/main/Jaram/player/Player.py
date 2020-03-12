@@ -1,3 +1,10 @@
+# Jaram
+# A MC:BE Software
+# https://github.com/SFWTeam/Jaram
+# By SFW-Team
+# And GianC-Dev
+#-------------------------------
+
 import os
 
 import login as login
