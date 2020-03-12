@@ -1,6 +1,6 @@
 version = [
     # Name
-    'Jaram\n',
+    'Jaram',
     # Version
     '1.14.0',
     # Protocol
