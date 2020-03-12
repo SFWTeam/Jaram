@@ -3,7 +3,7 @@
 # https://github.com/SFWTeam/Jaram
 # By SFW-Team
 # And GianC-Dev
-#-------------------------------
+# -------------------------------
 
 import os
 
@@ -14,6 +14,7 @@ from src.main.Jaram.VersionInfo import version
 
 players = ['']
 playersip = ['']
+
 
 class playerLogin:
     def __init__(self, name, ip, version):
@@ -26,5 +27,5 @@ class playerLogin:
         if self.ver > ver:
             print('Logined {}' + self.name)
             players.append('{}' + self.name)
-    pass
 
+    pass

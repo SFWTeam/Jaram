@@ -6,6 +6,10 @@
 #-------------------------------
 
 
+activedplugins = ['']
+pname = ['']
+papi = ['']
+pver = ['']
 
 status = []
 
