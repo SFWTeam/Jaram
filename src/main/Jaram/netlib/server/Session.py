@@ -22,11 +22,11 @@ PyRakLib networking library.
 import math
 import queue
 import collections
-from pyraklib import PyRakLib
-from pyraklib.protocol import *
-from pyraklib.protocol.ACK import ACK
-from pyraklib.protocol.NACK import NACK
-from pyraklib.protocol.DataPackets import DATA_PACKET_4, DATA_PACKET_0
+from src.main.Jaram.netlib.NetLib import NetLib
+from src.main.Jaram.netlib.protocol import *
+from src.main.Jaram.netlib.protocol.ACK import ACK
+from src.main.Jaram.netlib.protocol.NACK import NACK
+from src.main.Jaram.netlib.protocol.DataPackets import DATA_PACKET_4, DATA_PACKET_0
 import time as time_
 import copy
 
@@ -201,11 +201,11 @@ class Session:
             self.recoveryQueue[self.sendQueue.seqNumber] = self.sendQueue
             self.sendQueue = DATA_PACKET_4()
 
-    def addToQueue(self, pk, flags = PyRakLib.PRIORITY_NORMAL):
+    def addToQueue(self, pk, flags = NetLib.PRIORITY_NORMAL):
         priority = flags & 0b0000111
         if pk.needACK and pk.messageIndex != None:
             self.needACK[pk.identifierACK][pk.messageIndex] = pk.messageIndex
-        if priority == PyRakLib.PRIORITY_IMMEDIATE: # Skip queues
+        if priority == NetLib.PRIORITY_IMMEDIATE: # Skip queues
             packet = DATA_PACKET_0()
             self.sendSeqNumber += 1
             packet.seqNumber = self.sendSeqNumber
@@ -229,8 +229,8 @@ class Session:
         else:
             self.sendQueue.packets.append(pk.toBinary())
 
-    def addEncapsulatedToQueue(self, packet, flags = PyRakLib.PRIORITY_NORMAL):
-        packet.needACK = (flags & PyRakLib.FLAG_NEED_ACK)
+    def addEncapsulatedToQueue(self, packet, flags = NetLib.PRIORITY_NORMAL):
+        packet.needACK = (flags & NetLib.FLAG_NEED_ACK)
         if packet.needACK > 0:
             self.needACK[packet.identifierACK] = []
 
@@ -262,7 +262,7 @@ class Session:
                 if pk.reliability == 3:
                     pk.orderChannel = packet.orderChannel
                     pk.orderIndex = packet.orderIndex
-                self.addToQueue(pk, flags | PyRakLib.PRIORITY_IMMEDIATE)
+                self.addToQueue(pk, flags | NetLib.PRIORITY_IMMEDIATE)
         else:
             self.addToQueue(packet, flags)
 
@@ -338,7 +338,7 @@ class Session:
                     sendPacket = EncapsulatedPacket()
                     sendPacket.reliability = 0
                     sendPacket.buffer = pk.buffer
-                    self.addToQueue(sendPacket, PyRakLib.PRIORITY_IMMEDIATE)
+                    self.addToQueue(sendPacket, NetLib.PRIORITY_IMMEDIATE)
                 elif id == CLIENT_HANDSHAKE_DataPacket.PID:
                     dataPacket = CLIENT_HANDSHAKE_DataPacket()
                     dataPacket.buffer = packet.buffer
@@ -462,5 +462,5 @@ class Session:
 
     def close(self):
         data = "\x00\x00\x08\x15"
-        self.addEncapsulatedToQueue(EncapsulatedPacket.fromBinary(data)[0], PyRakLib.PRIORITY_IMMEDIATE)
+        self.addEncapsulatedToQueue(EncapsulatedPacket.fromBinary(data)[0], NetLib.PRIORITY_IMMEDIATE)
         self.sessionManager = None

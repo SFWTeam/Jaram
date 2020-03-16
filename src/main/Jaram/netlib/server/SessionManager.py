@@ -27,11 +27,11 @@ import time
 import math
 import pickle
 import sys
-from pyraklib.PyRakLib import PyRakLib
-from pyraklib.Binary import Binary
-from pyraklib.protocol import *
-from pyraklib.protocol.DataPackets import *
-from pyraklib.server.Session import Session
+from src.main.Jaram.netlib.NetLib import NetLib
+from src.main.Jaram.netlib.Binary import Binary
+from src.main.Jaram.netlib.protocol import *
+from src.main.Jaram.netlib.protocol.DataPackets import *
+from src.main.Jaram.netlib.server.Session import Session
 
 
 def microtime(get_as_float = False) :
@@ -165,34 +165,34 @@ class SessionManager:
         self.sendBytes += len(packet.buffer)
         self.socket.writePacket(packet.buffer, dest, port)
 
-    def streamEncapsulated(self, session, packet, flags = PyRakLib.PRIORITY_NORMAL):
+    def streamEncapsulated(self, session, packet, flags = NetLib.PRIORITY_NORMAL):
         id = session.address + ":" + str(session.port)
-        buffer = chr(PyRakLib.PACKET_ENCAPSULATED) + chr(len(id)) + id + chr(flags) + packet.toBinary(True)
+        buffer = chr(NetLib.PACKET_ENCAPSULATED) + chr(len(id)) + id + chr(flags) + packet.toBinary(True)
         self.server.pushThreadToMainPacket(buffer)
 
     def streamRaw(self, address, port, payload):
-        buffer = chr(PyRakLib.PACKET_RAW) + chr(len(address)) + address + Binary.writeShort(port) + payload
+        buffer = chr(NetLib.PACKET_RAW) + chr(len(address)) + address + Binary.writeShort(port) + payload
         self.server.pushThreadToMainPacket(buffer)
 
     def streamClose(self, identifier, reason):
-        buffer = chr(PyRakLib.PACKET_CLOSE_SESSION) + chr(len(identifier)) + identifier + chr(len(reason)) + reason
+        buffer = chr(NetLib.PACKET_CLOSE_SESSION) + chr(len(identifier)) + identifier + chr(len(reason)) + reason
         self.server.pushThreadToMainPacket(buffer)
 
     def streamInvalid(self, identifier):
-        buffer = chr(PyRakLib.PACKET_INVALID_SESSION) + chr(len(identifier)) + identifier
+        buffer = chr(NetLib.PACKET_INVALID_SESSION) + chr(len(identifier)) + identifier
         self.server.pushThreadToMainPacket(buffer)
 
     def streamOpen(self, session):
         identifier = session.address + ":" + str(session.port)
-        buffer = chr(PyRakLib.PACKET_OPEN_SESSION) + chr(len(identifier)) + identifier + chr(len(session.address))
+        buffer = chr(NetLib.PACKET_OPEN_SESSION) + chr(len(identifier)) + identifier + chr(len(session.address))
         self.server.pushThreadToMainPacket(buffer)
 
     def streamACK(self, identifier, identifierACK):
-        buffer = chr(PyRakLib.PACKET_ACK_NOTIFICATION) + chr(len(identifier)) + identifier + str(Binary.writeInt(identifierACK))
+        buffer = chr(NetLib.PACKET_ACK_NOTIFICATION) + chr(len(identifier)) + identifier + str(Binary.writeInt(identifierACK))
         self.server.pushThreadToMainPacket(buffer)
 
     def streamOption(self, name, value):
-        buffer = chr(PyRakLib.PACKET_SET_OPTION) + chr(len(str(name))) + str(name) + str(value)
+        buffer = chr(NetLib.PACKET_SET_OPTION) + chr(len(str(name))) + str(name) + str(value)
         self.server.pushThreadToMainPacket(buffer)
 
     def receiveStream(self):
@@ -202,7 +202,7 @@ class SessionManager:
         if len(packet) > 0:
             id = ord(packet[0])
             offset = 1
-            if id == PyRakLib.PACKET_ENCAPSULATED:
+            if id == NetLib.PACKET_ENCAPSULATED:
                 
                 length = ord(packet[offset])
                 identifier = packet[offset:offset+length]
@@ -215,7 +215,7 @@ class SessionManager:
                     self.sessions[identifier].addEncapsulatedToQueue(EncapsulatedPacket.fromBinary(buffer, True), flags)
                 except NameError:
                     self.streamInvalid(identifier)
-            elif id == PyRakLib.PACKET_RAW:
+            elif id == NetLib.PACKET_RAW:
                 
                 length = ord(packet[offset])
                 address = packet[offset:offset+length]
@@ -224,7 +224,7 @@ class SessionManager:
                 offset += 2
                 payload = packet[offset:]
                 self.socket.writePacket(payload, address, port)
-            elif id == PyRakLib.PACKET_SET_OPTION:
+            elif id == NetLib.PACKET_SET_OPTION:
                 
                 length = ord(packet[offset])
                 offset += 1
@@ -241,7 +241,7 @@ class SessionManager:
                 else:
                     pass
                     #self.server.logger.error("Invalid option: "+name+" "+value)
-            elif id == PyRakLib.PACKET_CLOSE_SESSION:
+            elif id == NetLib.PACKET_CLOSE_SESSION:
                 length = ord(packet[offset])
                 offset += 1
                 identifier = packet[offset:offset+length]
@@ -253,7 +253,7 @@ class SessionManager:
                     self.removeSession(s)
                 except KeyError:
                     self.streamInvalid(identifier)
-            elif id == PyRakLib.PACKET_INVALID_SESSION:
+            elif id == NetLib.PACKET_INVALID_SESSION:
                 
                 length = ord(packet[offset])
                 offset += 1
@@ -262,20 +262,20 @@ class SessionManager:
                     self.removeSession(self.sessions[identifier])
                 except KeyError:
                     pass
-            elif id == PyRakLib.PACKET_BLOCK_ADDRESS:
+            elif id == NetLib.PACKET_BLOCK_ADDRESS:
                 
                 length = ord(packet[offset])
                 address = packet[offset:offset+length]
                 offset += length
                 timeout = Binary.readInt(packet[offset:offset+4])
                 self.blockAddress(address, timeout)
-            elif id == PyRakLib.PACKET_SHUTDOWN:
+            elif id == NetLib.PACKET_SHUTDOWN:
                 for session in self.sessions:
                     del session
 
                 self.socket.close()
                 self.shutdown = True
-            elif id == PyRakLib.PACKET_EMERGENCY_SHUTDOWN:
+            elif id == NetLib.PACKET_EMERGENCY_SHUTDOWN:
                 self.shutdown = True
             else:
                 return False
