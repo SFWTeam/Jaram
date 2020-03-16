@@ -5,14 +5,11 @@
 # And GianC-Dev
 # -------------------------------
 
-import os
-
-import login as login
-import self
-
 from src.main.Jaram.VersionInfo import version
 from src.main.Jaram.server.Server import players
+
 from src.main.Jaram.server.Server import playersip
+
 
 class playerLogin:
     def __init__(self, name, ip, ver):
@@ -24,4 +21,3 @@ class playerLogin:
         if self.ver > version[1]:
             print('Logined {}' + self.name)
             players.append('{}' + self.name)
-    pass

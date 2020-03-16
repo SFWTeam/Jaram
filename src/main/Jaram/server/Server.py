@@ -3,7 +3,7 @@
 # https://github.com/SFWTeam/Jaram
 # By SFW-Team
 # And GianC-Dev
-#-------------------------------
+# -------------------------------
 
 # All Manager
 
@@ -30,9 +30,5 @@ class start:
     status.append('activated')
 
 
-pass
-
-
 class stop:
     status = 'deactived'
-    pass

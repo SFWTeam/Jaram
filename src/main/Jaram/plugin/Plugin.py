@@ -14,7 +14,7 @@ from src.main.Jaram.server.Server import pcmdinfo as pci
 from src.main.Jaram.VersionInfo import version
 
 
-class enaepl:
+class enablepl:
     def __init__(self, name, ver, author, api):
         self.name = name
         self.version = ver
@@ -25,9 +25,7 @@ class enaepl:
             an.append(self.name)
             aa.append(self.api)
             av.append(self.version)
-            pass
 
-    pass
 
 class addcmd:
     def __init__(self, command, description, code):
@@ -36,5 +34,3 @@ class addcmd:
         self.code = code
         pc.append(self.cmd)
         pci.append(self.des)
-        pass
-    pass
