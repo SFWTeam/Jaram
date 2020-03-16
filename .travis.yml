@@ -1,4 +1,4 @@
 language: python
-install:
-  - "pip install requests"
+  python:
+  - "2.7"
 script: python start.py
