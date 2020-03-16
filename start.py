@@ -21,3 +21,12 @@ print('--------------------------------')
 print('Great Peridot!')
 print('--------------------------------')
 
+__all__ = [
+    'VersionInfo',
+    'Server',
+    'Player'
+]
+
+from src.main.Jaram.VersionInfo import version as VersionInfo
+from src.main.Jaram.player.Player import player as Player
+from src.main.Jaram.server.Server import server as Server
