@@ -11,6 +11,10 @@ from src.main.Jaram.server.Server import players
 from src.main.Jaram.server.Server import playersip
 
 
+class player:
+    pass
+
+
 class playerLogin:
     def __init__(self, name, ip, ver):
         self.p = players

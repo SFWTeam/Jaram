@@ -24,6 +24,8 @@ playersip = ['']
 # Server
 status = []
 
+class server:
+    pass
 
 class start:
     status.clear()
