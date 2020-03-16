@@ -1,5 +1,4 @@
-  language: python,
-  os: [
-    linux
-  ],
-  dist: xenial
+language: python
+install:
+  - "pip install requests"
+script: python start.py
