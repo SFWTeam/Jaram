@@ -10,7 +10,7 @@ from src.main.Jaram.server.Server import start as active
 from src.main.Jaram.server.Server import activedplugins as ap
 from src.main.Jaram.netlib.server import NetLibServer
 from src.main.Jaram.netlib.server import ServerHandler
-import src.main.Jaram.logger.Logger as logger
+import src.main.Jaram.logger.WindowsLogger as logger
 import time
 import sys
 
