@@ -10,9 +10,9 @@ from abc import ABCMeta
 class NetLib:
     __metaclass__ = ABCMeta
 
-    LIBRARY_VERSION = "1.0.14b1"
-    VERSION = "0.7.0"
-    PROTOCOL = 5
+    LIBRARY_VERSION = "1.1"
+    VERSION = "0.10.0"
+    PROTOCOL = 390
     MAGIC = bytearray.fromhex("00 ff ff 00 fe fe fe fe fd fd fd fd 12 34 56 78")
 
     PRIORITY_NORMAL = 0

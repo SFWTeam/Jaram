@@ -1,36 +1,21 @@
-"""
-PyRakLib networking library.
-   self software is not affiliated with RakNet or Jenkins Software LLC.
-   self software is a port of PocketMine/RakLib <https://github.com/PocketMine/RakLib>.
-   All credit goes to the PocketMine Project (http://pocketmine.net)
- 
-   Copyright (C) 2015  PyRakLib Project
-
-    self program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    self program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with self program.  If not, see <http://www.gnu.org/licenses/>.
-"""
+# Jaram
+# A MC:BE Software
+# https://github.com/SFWTeam/Jaram
+# By SFW-Team
+# And GianC-Dev
+#-------------------------------
 from src.main.Jaram.netlib.Binary import Binary
 from src.main.Jaram.netlib.NetLib import NetLib
 from src.main.Jaram.netlib.protocol import EncapsulatedPacket
 import time
-from src.main.Jaram.netlib.server import PyRakLibServer, ServerInstance
+from src.main.Jaram.netlib.server import NetLibServer, ServerInstance
 
 
 class ServerHandler:
     server = None
     instance = None
 
-    def __init__(self, server: PyRakLibServer, instance: ServerInstance):
+    def __init__(self, server: NetLibServer, instance: ServerInstance):
         self.server = server
         self.instance = instance
 

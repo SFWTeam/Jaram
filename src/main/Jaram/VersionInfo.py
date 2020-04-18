@@ -11,10 +11,10 @@ version = [
     # Version
     '1.14.0',
     # Protocol
-    '389',
+    '390',
     # Version (Jaram)
-    '1.0',
+    '0.0.1.0',
     # API (Jaram)
-    '1.0'
+    '3.9.9.8'
     # Final
 ]

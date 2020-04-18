@@ -13,7 +13,6 @@ from src.main.Jaram.server.Server import pcmd as pc
 from src.main.Jaram.server.Server import pcmdinfo as pci
 from src.main.Jaram.VersionInfo import version
 
-
 class enablepl:
     def __init__(self, name, ver, author, api):
         self.name = name

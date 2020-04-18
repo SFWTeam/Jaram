@@ -14,7 +14,7 @@ __all__ = [
     'UDPServerSocket'
            ]
 
-from src.main.Jaram.netlib.server.PyRakLibServer import PyRakLibServer
+from src.main.Jaram.netlib.server.NetLibServer import NetLibServer
 from src.main.Jaram.netlib.server.Session import Session
 from src.main.Jaram.netlib.server.SessionManager import SessionManager
 from src.main.Jaram.netlib.server.ServerHandler import ServerHandler

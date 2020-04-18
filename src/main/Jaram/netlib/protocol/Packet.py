@@ -41,7 +41,7 @@ class Packet:
     def getByte(self) -> int:
         return ord(self.get())
 
-    def getString(self) -> str:
+    def getString(self) -> bytearray:
         return self.get(self.getShort())
 
     def getAddress(self) -> tuple:
