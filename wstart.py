@@ -37,10 +37,6 @@ try:
     handler = ServerHandler(server, None)
     handler.sendOption("name", "TestServer")
 
-    time.sleep(10)
-    handler.shutdown()
-    time.sleep(2)
-    sys.exit(0)
 except Exception as e:
     server.logger.critical("Test Failed: "+str(e))
     sys.exit(1)
