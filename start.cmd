@@ -1,5 +1,5 @@
 @echo off
-title PyStone: MC Bedrock Edition Server Software by HerryYT
+title Jaram a Minecraft: Pocket Edition Server Software By SFWTeam
 
 py wstart.py
 
