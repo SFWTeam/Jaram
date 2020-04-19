@@ -15,6 +15,14 @@ import time
 import sys
 
 active()
+logger.log("\033[92m" + """Jaram Starting........ powered by SFWTeam""" + "\033[0m")
+logger.log(" ")
+logger.log("\033[92m" + '-----/ Jaram Status  /-----' + "\033[0m")
+logger.log(' ')
+logger.log('\033[1;34;1m' + '~ Starting Server on 19132 Port' + "\033[0m")
+logger.log(' ')
+logger.log('\033[1;34;1m' + "-----/ SFWTeam  /----- " + "\033[0m")
+logger.log(" ")
 logger.log('--------------------------------')
 logger.log('Welcome The {}'.format(version[0]))
 logger.log('Creator: GianC-Dev & SFW-Team')
@@ -26,6 +34,9 @@ logger.log('Plugins: {}'.format(list(ap)))
 logger.log('--------------------------------')
 logger.log('Great Peridot!')
 logger.log('--------------------------------')
+logger.log(" ")
+logger.log("Server started successfully! You can now write commands.")
+logger.log(" ")
 
 
 __all__ = [
