@@ -1,11 +1,22 @@
-# Jaram
-# A MC:BE Software
-# https://github.com/SFWTeam/Jaram
-# By SFW-Team
-# And GianC-Dev
-# -------------------------------
+"""
+       _              _____               __  __
+      | |     /\     |  __ \      /\     |  \/  |
+      | |    /  \    | |__) |    /  \    | \  / |
+  _   | |   / /\ \   |  _  /    / /\ \   | |\/| |
+ | |__| |  / ____ \  | | \ \   / ____ \  | |  | |
+  \____/  /_/    \_\ |_|  \_\ /_/    \_\ |_|  |_|
 
-class sendCmd:
-    def __init__(self, command):
-        self.cmd = command
-        print('/', self.cmd)
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU Lesser General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  @author SFWTeam
+  @link https://github.com/SFWTeam
+
+"""
+
+
+
+def sendCmd():
+        pass

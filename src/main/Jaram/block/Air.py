@@ -16,31 +16,16 @@
 
 """
 
-import src.main.Jaram.player.Player as Player
-
-activedplugins = ['']
-pname = ['']
-papi = ['']
-pver = ['']
-pcmd = ['']
-pcmdinfo = ['']
-players = ['']
-playersip = ['']
-status = ['']
 
 
-def server(self):
-    pass
+def isBreakable():
+        return False
 
+def isEatable():
+        return False
 
-def start(self):
-    status.clear()
-    status.append('activated')
+def isGiveable():
+        return False
 
-
-def stop(self):
-    status = 'deactived'
-
-
-def getPlayer(self):
-    return Player
+def isBlock():
+        return True

@@ -1,3 +1,21 @@
+"""
+       _              _____               __  __
+      | |     /\     |  __ \      /\     |  \/  |
+      | |    /  \    | |__) |    /  \    | \  / |
+  _   | |   / /\ \   |  _  /    / /\ \   | |\/| |
+ | |__| |  / ____ \  | | \ \   / ____ \  | |  | |
+  \____/  /_/    \_\ |_|  \_\ /_/    \_\ |_|  |_|
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU Lesser General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  @author SFWTeam
+  @link https://github.com/SFWTeam
+
+"""
+
 WHITE = '\033[0m'
 WARNING = '\033[93m'
 BOLD = '\033[1m'
@@ -12,6 +30,7 @@ END = '\033[0m'
 
 
 from time import gmtime, strftime
+
 
 def log(msg):
     timestamp("Jaram: " + msg )

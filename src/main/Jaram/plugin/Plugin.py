@@ -1,35 +1,37 @@
-# Jaram
-# A MC:BE Software
-# https://github.com/SFWTeam/Jaram
-# By SFW-Team
-# And GianC-Dev
-# -------------------------------
+"""
+       _              _____               __  __
+      | |     /\     |  __ \      /\     |  \/  |
+      | |    /  \    | |__) |    /  \    | \  / |
+  _   | |   / /\ \   |  _  /    / /\ \   | |\/| |
+ | |__| |  / ____ \  | | \ \   / ____ \  | |  | |
+  \____/  /_/    \_\ |_|  \_\ /_/    \_\ |_|  |_|
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU Lesser General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  @author SFWTeam
+  @link https://github.com/SFWTeam
+
+"""
 
 from src.main.Jaram.server.Server import pname as an
 from src.main.Jaram.server.Server import papi as aa
 from src.main.Jaram.server.Server import pver as av
 from src.main.Jaram.server.Server import activedplugins as ap
-from src.main.Jaram.server.Server import pcmd as pc
-from src.main.Jaram.server.Server import pcmdinfo as pci
-from src.main.Jaram.VersionInfo import version
+from abc import abstractmethod
 
-class enablepl:
-    def __init__(self, name, ver, author, api):
-        self.name = name
-        self.version = ver
-        self.author = author
-        self.api = api
-        if api == version[1]:
-            ap.append(self.name)
-            an.append(self.name)
-            aa.append(self.api)
-            av.append(self.version)
+name = None
 
 
-class addcmd:
-    def __init__(self, command, description, code):
-        self.cmd = command
-        self.des = description
-        self.code = code
-        pc.append(self.cmd)
-        pci.append(self.des)
+def enablepl(name, ver, author, api):
+    name = name
+    version = ver
+    author = author
+    api = api
+    if api == version[1]:
+        ap.append(name)
+        an.append(name)
+        aa.append(api)
+        av.append(version)

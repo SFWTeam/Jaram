@@ -1,11 +1,23 @@
-# Jaram
-# A MC:BE Software
-# https://github.com/SFWTeam/Jaram
-# By SFW-Team
-# And GianC-Dev
-#-------------------------------
+"""
+       _              _____               __  __
+      | |     /\     |  __ \      /\     |  \/  |
+      | |    /  \    | |__) |    /  \    | \  / |
+  _   | |   / /\ \   |  _  /    / /\ \   | |\/| |
+ | |__| |  / ____ \  | | \ \   / ____ \  | |  | |
+  \____/  /_/    \_\ |_|  \_\ /_/    \_\ |_|  |_|
 
-import os, logging
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU Lesser General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  @author SFWTeam
+  @link https://github.com/SFWTeam
+
+"""
+
+import os
+import logging
 import atexit
 import queue
 from threading import Thread

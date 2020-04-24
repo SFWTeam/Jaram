@@ -1,9 +1,21 @@
-# Jaram
-# A MC:BE Software
-# https://github.com/SFWTeam/Jaram
-# By SFW-Team
-# And GianC-Dev
-#-------------------------------
+"""
+       _              _____               __  __
+      | |     /\     |  __ \      /\     |  \/  |
+      | |    /  \    | |__) |    /  \    | \  / |
+  _   | |   / /\ \   |  _  /    / /\ \   | |\/| |
+ | |__| |  / ____ \  | | \ \   / ____ \  | |  | |
+  \____/  /_/    \_\ |_|  \_\ /_/    \_\ |_|  |_|
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU Lesser General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  @author SFWTeam
+  @link https://github.com/SFWTeam
+
+"""
+
 import logging
 import socket
 
@@ -31,12 +43,10 @@ class UDPServerSocket:
     def readPacket(self):
         try:
             data = self.socket.recvfrom(65535)
-            print("Packet IN: "+str(data))
             return data
         except Exception as e:
             pass
 
     def writePacket(self, buffer, dest, port):
-        print("Packet OUT: "+str(buffer))
         return self.socket.sendto(buffer, (dest, port))
 
