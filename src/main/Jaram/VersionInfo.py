@@ -20,7 +20,7 @@ version = [
     # Name
     'Jaram',
     # Version
-    '1.14.0',
+    '1.14.60',
     # Protocol
     '390',
     # Version (Jaram)

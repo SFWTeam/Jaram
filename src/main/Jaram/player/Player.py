@@ -26,8 +26,8 @@ from src.main.Jaram.VersionInfo import version
 from src.main.Jaram.server.Server import players
 from src.main.Jaram.server.Server import playersip
 
-
-def playerLogin(self, namee, ipp, vers):
+class Player:
+ def playerLogin(self, namee, ipp, vers):
         playersip.append(ipp)
         ver = vers
         if ver > version[1]:

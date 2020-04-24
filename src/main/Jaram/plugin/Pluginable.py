@@ -16,28 +16,13 @@
 
 """
 
-activedplugins = ['']
-pname = ['']
-pcmd = ['']
-pcmdinfo = ['']
-players = ['']
-playersip = ['']
-status = ['']
+from src.main.Jaram.VersionInfo import version
 
-from src.main.Jaram.player import Player
+class Pluginable:
 
-
-class Server:
-
-    def start(self):
-        status.clear()
-        status.append('activated')
-
-    def stop(self):
-        status = 'deactived'
-
-    def getPlayer(self):
-        return Player.Player
-
-    def getServer(self):
-        return self
+    def check(self, cversion, api, name):
+        if cversion == version[1] & api == version[3]:
+            return True
+        else:
+            print("Fail in "+name+" Plugin")
+            return False
