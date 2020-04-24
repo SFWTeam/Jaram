@@ -16,24 +16,20 @@
 
 """
 
-from src.main.Jaram.VersionInfo import version
-from src.main.Jaram.server.Server import players
-
-from src.main.Jaram.server.Server import playersip
-
 ip = None
 name = None
 p = None
 pip = None
-players = []
 
 
-def playerLogin(namee, ipp, vers):
-        p = players
-        pip = playersip
-        name = namee
-        ip = ipp
+from src.main.Jaram.VersionInfo import version
+from src.main.Jaram.server.Server import players
+from src.main.Jaram.server.Server import playersip
+
+
+def playerLogin(self, namee, ipp, vers):
+        playersip.append(ipp)
         ver = vers
         if ver > version[1]:
-            print('Logined {}' + namee)
-            players.append('{}' + namee)
+            print('Logined {}', namee)
+            players.append('{}', namee)

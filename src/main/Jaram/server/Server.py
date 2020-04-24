@@ -16,7 +16,7 @@
 
 """
 
-import src.main.Jaram.player.Player as Player
+
 
 activedplugins = ['']
 pname = ['']
@@ -28,10 +28,7 @@ players = ['']
 playersip = ['']
 status = ['']
 
-
-def server(self):
-    pass
-
+from src.main.Jaram.player import Player
 
 def start(self):
     status.clear()

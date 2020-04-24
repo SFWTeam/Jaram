@@ -15,6 +15,7 @@
   @link https://github.com/SFWTeam
 
 """
+name = None
 
 from src.main.Jaram.server.Server import pname as an
 from src.main.Jaram.server.Server import papi as aa
@@ -22,16 +23,16 @@ from src.main.Jaram.server.Server import pver as av
 from src.main.Jaram.server.Server import activedplugins as ap
 from abc import abstractmethod
 
-name = None
 
+class Plugin:
 
-def enablepl(name, ver, author, api):
-    name = name
-    version = ver
-    author = author
-    api = api
-    if api == version[1]:
-        ap.append(name)
-        an.append(name)
-        aa.append(api)
-        av.append(version)
+    def enablepl(self, name, ver, author, api):
+        name = name
+        version = ver
+        author = author
+        api = api
+        if api == version[1]:
+            ap.append(name)
+            an.append(name)
+            aa.append(api)
+            av.append(version)

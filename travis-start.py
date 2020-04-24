@@ -6,15 +6,11 @@
 #-------------------------------
 
 from src.main.Jaram.VersionInfo import version
-from src.main.Jaram.server.Server import start as active
 from src.main.Jaram.server.Server import activedplugins as ap
 from src.main.Jaram.netlib.server import NetLibServer
 from src.main.Jaram.netlib.server import ServerHandler
-import src.main.Jaram.logger.Logger as logger
-import time
-import sys
+import src.main.Jaram.logger.WindowsLogger as logger
 
-active()
 logger.log('--------------------------------')
 logger.log('Welcome The {}'.format(version[0]))
 logger.log('Creator: GianC-Dev & SFW-Team')
